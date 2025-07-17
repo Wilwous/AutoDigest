@@ -24,6 +24,7 @@ final class NewsViewController: UIViewController {
             collectionViewLayout: NewsLayoutProvider.createLayout()
         )
         view.backgroundColor = .systemBackground
+        view.delegate = self
         view.register(
             NewsCell.self,
             forCellWithReuseIdentifier: NewsCell.reuseID
@@ -119,5 +120,15 @@ final class NewsViewController: UIViewController {
         Task {
             await viewModel.fetchInitialNews()
         }
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension NewsViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
+        WebOpener.openWebLink(from: self, urlString: item.fullUrl)
     }
 }

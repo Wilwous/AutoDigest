@@ -56,11 +56,18 @@ final class NewsCell: UICollectionViewCell {
     func configure(with item: NewsItem) {
         titleLabel.text = item.title
         imageView.image = nil
-        
+
+        guard let url = URL(string: item.titleImageUrl) else { return }
+
+        if let cachedImage = ImageCache.shared.image(for: url) {
+            imageView.image = cachedImage
+            return
+        }
+
         Task {
-            if let url = URL(string: item.titleImageUrl),
-               let (data, _) = try? await URLSession.shared.data(from: url),
+            if let (data, _) = try? await URLSession.shared.data(from: url),
                let image = UIImage(data: data) {
+                ImageCache.shared.insertImage(image, for: url)
                 imageView.alpha = 0
                 imageView.image = image
                 UIView.animate(withDuration: 0.3) {
