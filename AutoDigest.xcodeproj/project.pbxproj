@@ -12,6 +12,13 @@
 		7C694D152E26B2B9000E24E4 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C694D112E26B2B9000E24E4 /* NewsViewController.swift */; };
 		7C694D162E26B2B9000E24E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C694D0A2E26B2B9000E24E4 /* Assets.xcassets */; };
 		7C694D182E26B2B9000E24E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C694D0D2E26B2B9000E24E4 /* LaunchScreen.storyboard */; };
+		7C694D212E26CA28000E24E4 /* NewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C694D202E26CA21000E24E4 /* NewItem.swift */; };
+		7C694D242E27B5A3000E24E4 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C694D232E27B59F000E24E4 /* NewsService.swift */; };
+		7C694D272E280FBB000E24E4 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C694D262E280FB3000E24E4 /* NewsViewModel.swift */; };
+		7C694D292E2919BF000E24E4 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C694D282E2919BF000E24E4 /* NewsCell.swift */; };
+		7C694D2B2E291D58000E24E4 /* NewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C694D2A2E291D57000E24E4 /* NewsResponse.swift */; };
+		7C694D2D2E293062000E24E4 /* NewsLayoutProvider..swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C694D2C2E293061000E24E4 /* NewsLayoutProvider..swift */; };
+		7C694D312E297B6A000E24E4 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C694D302E297B69000E24E4 /* UIViewController+Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +29,13 @@
 		7C694D0C2E26B2B9000E24E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C694D102E26B2B9000E24E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7C694D112E26B2B9000E24E4 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		7C694D202E26CA21000E24E4 /* NewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItem.swift; sourceTree = "<group>"; };
+		7C694D232E27B59F000E24E4 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
+		7C694D262E280FB3000E24E4 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		7C694D282E2919BF000E24E4 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		7C694D2A2E291D57000E24E4 /* NewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsResponse.swift; sourceTree = "<group>"; };
+		7C694D2C2E293061000E24E4 /* NewsLayoutProvider..swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLayoutProvider..swift; sourceTree = "<group>"; };
+		7C694D302E297B69000E24E4 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +70,7 @@
 			children = (
 				7C694D1B2E26B2FB000E24E4 /* Application */,
 				7C694D1C2E26B8B9000E24E4 /* Modules */,
+				7C694D2E2E297B49000E24E4 /* Common */,
 				7C694D1A2E26B2BE000E24E4 /* Resources */,
 				7C694D0B2E26B2B9000E24E4 /* Info.plist */,
 			);
@@ -91,7 +106,10 @@
 		7C694D1D2E26B8C3000E24E4 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				7C694D1F2E26CA14000E24E4 /* Model */,
+				7C694D222E27B591000E24E4 /* Service */,
 				7C694D1E2E26B8D4000E24E4 /* View */,
+				7C694D252E280FA3000E24E4 /* ViewModel */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -100,8 +118,51 @@
 			isa = PBXGroup;
 			children = (
 				7C694D112E26B2B9000E24E4 /* NewsViewController.swift */,
+				7C694D2C2E293061000E24E4 /* NewsLayoutProvider..swift */,
+				7C694D282E2919BF000E24E4 /* NewsCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7C694D1F2E26CA14000E24E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C694D2A2E291D57000E24E4 /* NewsResponse.swift */,
+				7C694D202E26CA21000E24E4 /* NewItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7C694D222E27B591000E24E4 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				7C694D232E27B59F000E24E4 /* NewsService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		7C694D252E280FA3000E24E4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7C694D262E280FB3000E24E4 /* NewsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7C694D2E2E297B49000E24E4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7C694D2F2E297B5D000E24E4 /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		7C694D2F2E297B5D000E24E4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7C694D302E297B69000E24E4 /* UIViewController+Alert.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,7 +239,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C694D132E26B2B9000E24E4 /* AppDelegate.swift in Sources */,
+				7C694D2B2E291D58000E24E4 /* NewsResponse.swift in Sources */,
+				7C694D272E280FBB000E24E4 /* NewsViewModel.swift in Sources */,
+				7C694D242E27B5A3000E24E4 /* NewsService.swift in Sources */,
+				7C694D292E2919BF000E24E4 /* NewsCell.swift in Sources */,
+				7C694D312E297B6A000E24E4 /* UIViewController+Alert.swift in Sources */,
+				7C694D212E26CA28000E24E4 /* NewItem.swift in Sources */,
 				7C694D142E26B2B9000E24E4 /* SceneDelegate.swift in Sources */,
+				7C694D2D2E293062000E24E4 /* NewsLayoutProvider..swift in Sources */,
 				7C694D152E26B2B9000E24E4 /* NewsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,7 +278,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -218,6 +286,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.Wilwous.AutoDigest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -237,7 +309,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -245,6 +317,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.Wilwous.AutoDigest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
