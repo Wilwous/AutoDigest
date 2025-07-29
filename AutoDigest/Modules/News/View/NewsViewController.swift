@@ -25,6 +25,7 @@ final class NewsViewController: UIViewController {
         )
         view.backgroundColor = .systemBackground
         view.delegate = self
+        view.showsVerticalScrollIndicator = false
         view.register(
             NewsCell.self,
             forCellWithReuseIdentifier: NewsCell.reuseID
@@ -130,5 +131,17 @@ extension NewsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
         WebOpener.openWebLink(from: self, urlString: item.fullUrl)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+
+        if offsetY > contentHeight - height * 2 {
+            Task {
+                await viewModel.fetchMoreIfNeeded(currentItem: viewModel.news.last)
+            }
+        }
     }
 }

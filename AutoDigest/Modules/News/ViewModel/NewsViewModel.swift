@@ -21,7 +21,7 @@ final class NewsViewModel: ObservableObject {
     
     private let newsService: NewsServiceProtocol
     private var currentPage = 1
-    private let itemsPerPage = 15
+    private let itemsPerPage = 5
     private var canLoadMore = true
     
     // MARK: - Initializers
@@ -41,8 +41,8 @@ final class NewsViewModel: ObservableObject {
 
     func fetchMoreIfNeeded(currentItem: NewsItem?) async {
         guard let currentItem = currentItem else { return }
-        let thresholdIndex = news.index(news.endIndex, offsetBy: -5)
-        if news.firstIndex(where: { $0.id == currentItem.id }) == thresholdIndex {
+
+        if news.last == currentItem {
             await fetchNews()
         }
     }
@@ -52,20 +52,29 @@ final class NewsViewModel: ObservableObject {
     private func fetchNews() async {
         guard !isLoading, canLoadMore else { return }
         isLoading = true
+
         do {
             let newItems = try await newsService.fetchNews(
                 page: currentPage,
                 limit: itemsPerPage
             )
+
             if newItems.isEmpty {
                 canLoadMore = false
             } else {
                 news += newItems
                 currentPage += 1
             }
+
         } catch {
-            errorMessage = error.localizedDescription
+            if currentPage == 1 {
+                errorMessage = error.localizedDescription
+            } else {
+                print("⚠️ Ошибка при подгрузке, но скрываем её: \(error.localizedDescription)")
+            }
+            canLoadMore = false
         }
+
         isLoading = false
     }
 }
